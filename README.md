@@ -1,6 +1,6 @@
 # Zingat Challenge
 
-<p>A project about tokenized file serving.</p>
+<p>A simple app about tokenized file serving.</p>
 
 ## Requirements
 It's a Docker project. So, you need Docker with CLI. If you are a Linux user, be sure about you are in `docker` user-group ([how-to](https://docs.docker.com/install/linux/linux-postinstall/)). Also, it's using `docker-compose`, be sure about you have this package in your system.
