@@ -18,7 +18,8 @@ You are now in the container. You could execute below without errors:
 ```bash
 composer install;
 npm install && npm run dev;
-php artisan migrate --seed;
+cp .env-example .env
+php artisan migrate:refresh --seed;
 ```
 
 ## Browsing
