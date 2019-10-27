@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "4b3514ae-71cf-4326-9b5b-994d0b681cce",
+		"name": "Zingat Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Token",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1f47b0f5-038c-4cab-a4fb-0771588912f5",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "57778c55-35b4-429d-8bcd-d95959fecb22",
+						"exec": [
+							"pm.environment.set(\"api_token\", responseBody);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/new-api-token?api_token={{api_token}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"new-api-token"
+					],
+					"query": [
+						{
+							"key": "api_token",
+							"value": "{{api_token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Document",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e9341949-fbd5-4ff2-b788-5384f9176766",
+						"exec": [
+							"pm.test(\"Content-Type is PDF\", () => {",
+							"    pm.expect(responseHeaders[\"Content-Type\"] === 'application/pdf').to.be.true",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api_token",
+						"value": "iTxvesCrnQ55jY94xWUld5EmUWA07OQgdCs8G3yAKpdNXcfEbQNS5feKwd3u",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost/api/document/1?api_token={{api_token}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"document",
+						"1"
+					],
+					"query": [
+						{
+							"key": "api_token",
+							"value": "{{api_token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Expire the Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/expire-the-token?api_token={{api_token}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"expire-the-token"
+					],
+					"query": [
+						{
+							"key": "api_token",
+							"value": "{{api_token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
